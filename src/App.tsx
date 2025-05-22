@@ -32,8 +32,11 @@ function Home() {
 }
 
 function App() {
+  // Use import.meta.env.BASE_URL which is set by Vite based on the 'base' config
+  const routerBasename = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+
   return (
-    <Router>
+    <Router basename={routerBasename}>
       <div className="bg-gray-900 text-gray-100 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
