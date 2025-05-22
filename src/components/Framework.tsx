@@ -99,7 +99,7 @@ const Framework = () => {
         
         <div className="mt-16 text-center">
           <a 
-            href="#contact" 
+            href="https://calendly.com/shikharsharma/beyond-boring-discovery-call" 
             className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-medium py-3 px-8 rounded-md transition-all duration-300 text-lg shadow-lg hover:shadow-purple-500/20"
           >
             Start Your Growth Journey

@@ -46,7 +46,7 @@ const Header = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="https://calendly.com/shikharsharma/beyond-boring-discovery-call"
             className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-200"
           >
             Book a Call
@@ -77,7 +77,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://calendly.com/shikharsharma/beyond-boring-discovery-call"
               className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-200 text-center"
               onClick={() => setIsOpen(false)}
             >

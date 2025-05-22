@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
           
           <div>
             <a 
-              href="#contact" 
+              href="https://calendly.com/shikharsharma/beyond-boring-discovery-call" 
               className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-xl font-medium py-5 px-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20"
             >
               Book a Call

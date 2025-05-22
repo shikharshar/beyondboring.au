@@ -27,40 +27,28 @@ const Services = () => {
   const services = [
     {
       icon: <BrainCircuit className="h-8 w-8 text-purple-500" />,
-      title: "AI Workflows",
-      description: "Leverage our proprietary AI tools to analyze industry and competitive ads to identify winning creative strategies.",
-      features: ["Competitive analysis", "Pattern recognition", "Efficient creative development"]
+      title: "Data Analysis",
+      description: "Our team of data analyst experts dissects industry and competitive ads to unearth winning creative strategies, fast.",
+      features: ["Data analysis", "Competitive research", "Efficient creative development"]
     },
     {
       icon: <BarChart3 className="h-8 w-8 text-blue-500" />,
       title: "Automated Dashboards",
-      description: "Streamlined data collection and campaign optimization. Get clear insights into your ad performance at a glance.",
-      features: ["Real-time analytics", "Custom KPI tracking", "Actionable insights"]
+      description: "We leverage our software expertise to build tailored, real-time dashboards that give you instant, precise insights into your company's performance.",
+      features: ["Tailored solutions", "Real-time analytics", "Custom dashboards"]
     },
     {
       icon: <Target className="h-8 w-8 text-pink-500" />,
       title: "Fractional Team Approach",
-      description: "Get full-time results at a lower cost than traditional agencies or in-house teams. Maximize your ROI.",
+      description: "The combination of our tools, workflows, and automations helps us be efficient and generate better results at a lower cost vs. hiring an in-house team or trad. agency.",
       features: ["Expert ad specialists", "Cost-effective scaling", "Flexible resource allocation"]
-    },
-    {
-      icon: <LineChart className="h-8 w-8 text-green-500" />,
-      title: "Transparent Pricing",
-      description: "No percentage of ad spend. Simple flat fees based on the value we provide. Know exactly what you're paying for.",
-      features: ["Clear fee structure", "No hidden costs", "Predictable budgeting"]
     }
-  ];
-
-  const platforms = [
-    "Meta Ads", "Google Ads", "TikTok Ads", "Ad Creative", 
-    "Copywriting", "Landing Pages", "Funnel Optimization", 
-    "Performance Analytics", "Automated Reporting"
   ];
 
   return (
     <section 
       id="services" 
-      className="py-20 bg-gray-900"
+      className="pt-10 pb-40 bg-gray-900"
     >
       <div 
         ref={sectionRef} 
@@ -69,16 +57,15 @@ const Services = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-              Our Services
+              Stop gambling. Get Boring
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We maximize ad profitability and conversions using our proprietary
-            tools and expert strategies. No more guesswork.
+            Here's how we maximize your ad profitability & conversions
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard 
               key={index}
@@ -89,20 +76,6 @@ const Services = () => {
               delay={index * 200}
             />
           ))}
-        </div>
-
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold mb-6 text-center">Platforms & Specialties</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {platforms.map((platform, index) => (
-              <span 
-                key={index}
-                className="px-4 py-2 bg-gray-800 rounded-full text-sm font-medium border border-gray-700 hover:border-purple-500 transition-colors duration-300"
-              >
-                {platform}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
