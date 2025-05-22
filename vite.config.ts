@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/beyondboring.au/',
+  // base: '/beyondboring.au/', // Reverted for local development
 });
