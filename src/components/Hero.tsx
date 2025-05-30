@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-2xl md:text-3xl text-gray-300 mb-12">
-            $10 million+ in efficient ad spend. From creative to conversion, 
+            $100K+ in efficient ad spend. From creative to conversion, 
             our team and in-house tech have you covered.
           </p>
           
