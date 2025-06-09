@@ -39,7 +39,7 @@ const AboutUs: React.FC = () => {
       name: "Shikhar Sharma",
       position: "Co Founder",
       bio: "Former Growth Lead at Fortune 500 companies with 10+ years of experience in scaling brands through digital advertising.",
-      image: "src/Images/Shikhar2.jpg",
+      image: "/Images/Shikhar2.jpg",
       social: {
         linkedin: "https://www.linkedin.com/in/shikharparhoon/",
         //twitter: "#"
@@ -49,7 +49,7 @@ const AboutUs: React.FC = () => {
       name: "Kaish Yadav",
       position: "Co Founder",
       bio: "Renowned growth expert who has helped scale numerous startups to multi-million dollar valuations through innovative ad strategies.",
-      image: "src/Images/Kaish.jpeg",
+      image: "/Images/Kaish.jpeg",
       social: {
         linkedin: "https://www.linkedin.com/in/kaish-yadav-92819421b/",
         //twitter: "#"
@@ -59,7 +59,7 @@ const AboutUs: React.FC = () => {
       name: "Punnya Khanolkar",
       position: "Marketing coordinator",
       bio: "Blending hospitality insights with marketing expertise to create exceptional brand experiences.",
-      image: "src/Images/Punnya2.jpg",
+      image: "/Images/Punnya2.jpg",
       social: {
         linkedin: "https://www.linkedin.com/in/punnya-khanolkar-811535212/"
       }
@@ -68,7 +68,7 @@ const AboutUs: React.FC = () => {
       name: "Parijat Patil",
       position: "Creative Director",
       bio: "Award-winning creative with a background in developing high-converting ad campaigns for global brands.",
-      image: "src/Images/Photographer.jpeg",
+      image: "/Images/Photographer.jpeg",
       social: {
         linkedin: "https://www.linkedin.com/in/parijat-patil-773b19176/"
       }
