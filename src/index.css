@@ -5,10 +5,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
     @apply bg-gray-900 text-gray-100;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -55,9 +59,27 @@ button {
 img {
   -webkit-user-drag: none;
   user-select: none;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Glass effect */
 .glass-effect {
   @apply backdrop-blur-md bg-gray-900/70 border border-gray-700;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure all sections are properly contained */
+section {
+  width: 100%;
+  overflow-x: hidden;
 }
