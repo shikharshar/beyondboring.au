@@ -36,42 +36,41 @@ const AboutUs: React.FC = () => {
 
   const team: TeamMember[] = [
     {
-      name: "James Dickerson",
-      position: "Founder & CEO",
+      name: "Shikhar Sharma",
+      position: "Co Founder",
       bio: "Former Growth Lead at Fortune 500 companies with 10+ years of experience in scaling brands through digital advertising.",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "src/Images/Shikhar2.jpg",
       social: {
-        linkedin: "#",
-        twitter: "#"
+        linkedin: "https://www.linkedin.com/in/shikharparhoon/",
+        //twitter: "#"
       }
     },
     {
-      name: "Greg Isenberg",
-      position: "Chief Strategy Officer",
+      name: "Kaish Yadav",
+      position: "Co Founder",
       bio: "Renowned growth expert who has helped scale numerous startups to multi-million dollar valuations through innovative ad strategies.",
-      image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "src/Images/Kaish.jpeg",
       social: {
-        linkedin: "#",
-        twitter: "#"
+        linkedin: "https://www.linkedin.com/in/kaish-yadav-92819421b/",
+        //twitter: "#"
       }
     },
     {
-      name: "Sophia Chen",
-      position: "Head of AI & Analytics",
-      bio: "Data scientist with expertise in machine learning and predictive modeling for advertising optimization.",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      name: "Punnya Khanolkar",
+      position: "Marketing coordinator",
+      bio: "Blending hospitality insights with marketing expertise to create exceptional brand experiences.",
+      image: "src/Images/Punnya2.jpg",
       social: {
-        linkedin: "#"
+        linkedin: "https://www.linkedin.com/in/punnya-khanolkar-811535212/"
       }
     },
     {
-      name: "Marcus Williams",
+      name: "Parijat Patil",
       position: "Creative Director",
       bio: "Award-winning creative with a background in developing high-converting ad campaigns for global brands.",
-      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      image: "src/Images/Photographer.jpeg",
       social: {
-        linkedin: "#",
-        twitter: "#"
+        linkedin: "https://www.linkedin.com/in/parijat-patil-773b19176/"
       }
     }
   ];
