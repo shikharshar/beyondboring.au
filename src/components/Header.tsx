@@ -29,9 +29,8 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-2 text-xl font-bold text-purple-400">
-          <BrainCircuit className="h-7 w-7" />
-          <span>BeyondBoring</span>
+        <a href="#" className="flex items-center gap-2">
+          <img src="/Images/BeyondBoringLogo.png" alt="BeyondBoring Logo" className="h-10 w-auto" />
         </a>
 
         {/* Desktop Menu */}
