@@ -6,8 +6,6 @@ interface Testimonial {
   position: string;
   company: string;
   quote: string;
-  result: string;
-  image: string;
 }
 
 const Testimonials = () => {
@@ -35,28 +33,22 @@ const Testimonials = () => {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Sarah Johnson",
-      position: "CMO",
-      company: "Zenly",
-      quote: "BeyondBoring transformed our ad strategy. Their AI-driven approach eliminated guesswork and delivered consistent results.",
-      result: "Reduced CAC by 32% while scaling monthly ad spend from $50K to $300K",
-      image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "David Chen",
+      position: "Marketing Director",
+      company: "TechGrowth",
+      quote: "BeyondBoring's strategic approach to digital marketing has been instrumental in our growth. Their team's dedication and expertise are truly exceptional."
     },
     {
-      name: "Michael Rodriguez",
-      position: "Growth Lead",
-      company: "Public",
-      quote: "Working with BeyondBoring has been a game-changer. Their team's expertise and data-driven methodology have completely transformed our advertising approach.",
-      result: "Increased conversion rates by 45% and ROAS by 2.7x within 3 months",
-      image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "Lisa Patel",
+      position: "CEO",
+      company: "InnovateRetail",
+      quote: "Working with BeyondBoring has transformed how we approach digital advertising. Their insights and execution have helped us reach new heights."
     },
     {
-      name: "Emily Chang",
-      position: "Founder",
-      company: "DigitalFirst",
-      quote: "After struggling with inconsistent ad performance, BeyondBoring brought stability and predictable growth to our campaigns.",
-      result: "Scaled monthly revenue from $250K to $1.2M with profitable ad campaigns",
-      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      name: "James Wilson",
+      position: "Head of Growth",
+      company: "StartupScale",
+      quote: "The team at BeyondBoring brings both expertise and innovation to the table. They've been crucial in helping us navigate the digital landscape."
     }
   ];
 
@@ -98,30 +90,15 @@ const Testimonials = () => {
               <Quote size={40} className="opacity-50" />
             </div>
             
-            <div className="md:flex items-center gap-8">
-              <div className="mb-6 md:mb-0 md:w-1/3">
-                <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-purple-500/30">
-                  <img 
-                    src={testimonials[activeIndex].image} 
-                    alt={testimonials[activeIndex].name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            <div className="md:flex items-center gap-8">              
+              <div className="md:w-full">
+                <p className="text-gray-300 text-lg italic mb-6">
+                  "{testimonials[activeIndex].quote}"
+                </p>
                 <div className="text-center mt-4">
                   <h3 className="text-xl font-bold text-white">{testimonials[activeIndex].name}</h3>
                   <p className="text-gray-400">{testimonials[activeIndex].position}</p>
                   <p className="text-purple-400 font-medium">{testimonials[activeIndex].company}</p>
-                </div>
-              </div>
-              
-              <div className="md:w-2/3">
-                <p className="text-gray-300 text-lg italic mb-6">
-                  "{testimonials[activeIndex].quote}"
-                </p>
-                
-                <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-                  <p className="text-sm text-gray-400 font-medium mb-2">RESULTS:</p>
-                  <p className="text-white font-semibold">{testimonials[activeIndex].result}</p>
                 </div>
               </div>
             </div>
