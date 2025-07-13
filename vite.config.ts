@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/beyondboring.au/',
+  base: '/',
   build: {
     outDir: 'dist',
   },
