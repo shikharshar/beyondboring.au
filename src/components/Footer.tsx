@@ -29,7 +29,7 @@ const Footer = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           <div className="md:col-span-2">
-            <h3 className="text-white font-bold mb-4">About BeyondBoring</h3>
+            <h3 className="text-white font-bold mb-4">Company Overview</h3>
             <p className="text-gray-400 max-w-md">
               We help growth-obsessed brands scale profitably through data-driven 
               advertising strategies. Our proprietary AI tools and experienced team 
@@ -40,7 +40,7 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['Services', 'Process', 'Results', 'About Us', 'Contact'].map((item, index) => (
+              {['Services', 'Process', 'Results', 'Contact'].map((item, index) => (
                 <li key={index}>
                   <a 
                     href={`#${item.toLowerCase().replace(' ', '')}`}
@@ -72,7 +72,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} BeyondBoring. All rights reserved.
+            &copy; {new Date().getFullYear()} Beyond Boring. All rights reserved.
           </p>
           
           <div className="flex gap-6">

@@ -8,9 +8,9 @@ import EverythingWeHelpWith from './components/EverythingWeHelpWith';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AboutUs from './components/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';
+import WhoWeAre from './components/WhoWeAre';
 
 function Home() {
   return (
@@ -22,7 +22,7 @@ function Home() {
         <Framework />
         <EverythingWeHelpWith />
         <Testimonials />
-        <AboutUs />
+        <WhoWeAre />
         <FAQ />
         <Contact />
       </main>

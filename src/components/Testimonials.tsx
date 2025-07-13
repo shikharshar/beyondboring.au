@@ -6,7 +6,6 @@ interface Testimonial {
   position: string;
   company: string;
   quote: string;
-  image: string;
 }
 
 const Testimonials = () => {
@@ -37,22 +36,19 @@ const Testimonials = () => {
       name: "David Chen",
       position: "Marketing Director",
       company: "TechGrowth",
-      quote: "BeyondBoring's strategic approach to digital marketing has been instrumental in our growth. Their team's dedication and expertise are truly exceptional.",
-      image: "/Images/testimonial1.jpg"
+      quote: "BeyondBoring's strategic approach to digital marketing has been instrumental in our growth. Their team's dedication and expertise are truly exceptional."
     },
     {
       name: "Lisa Patel",
       position: "CEO",
       company: "InnovateRetail",
-      quote: "Working with BeyondBoring has transformed how we approach digital advertising. Their insights and execution have helped us reach new heights.",
-      image: "/Images/testimonial2.jpg"
+      quote: "Working with BeyondBoring has transformed how we approach digital advertising. Their insights and execution have helped us reach new heights."
     },
     {
       name: "James Wilson",
       position: "Head of Growth",
       company: "StartupScale",
-      quote: "The team at BeyondBoring brings both expertise and innovation to the table. They've been crucial in helping us navigate the digital landscape.",
-      image: "/Images/testimonial3.jpg"
+      quote: "The team at BeyondBoring brings both expertise and innovation to the table. They've been crucial in helping us navigate the digital landscape."
     }
   ];
 
@@ -69,9 +65,6 @@ const Testimonials = () => {
       id="testimonials" 
       className="py-20 bg-gray-900 relative overflow-hidden"
     >
-      {/* Background decorations */}
-      <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-gray-800 to-transparent"></div>
-      
       <div 
         ref={sectionRef} 
         className="container mx-auto px-4 md:px-6 relative z-10 opacity-0 translate-y-10 transition-all duration-1000"
@@ -89,40 +82,30 @@ const Testimonials = () => {
         </div>
         
         <div className="max-w-5xl mx-auto">
-          <div className="relative bg-gray-800 rounded-2xl p-6 md:p-10 shadow-xl border border-gray-700">
-            <div className="absolute -top-5 left-10 text-purple-500">
-              <Quote size={40} className="opacity-50" />
+          <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-gray-700/50">
+            <div className="absolute -top-4 left-12 text-purple-500/20">
+              <Quote size={80} />
             </div>
             
-            <div className="md:flex items-center gap-8">
-              <div className="mb-6 md:mb-0 md:w-1/3">
-                <div className="relative w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden border-4 border-purple-500/30">
-                  <img 
-                    src={testimonials[activeIndex].image} 
-                    alt={testimonials[activeIndex].name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="text-center mt-4">
-                  <h3 className="text-xl font-bold text-white">{testimonials[activeIndex].name}</h3>
-                  <p className="text-gray-400">{testimonials[activeIndex].position}</p>
-                  <p className="text-purple-400 font-medium">{testimonials[activeIndex].company}</p>
-                </div>
-              </div>
+            <div className="relative z-10">
+              <p className="text-gray-300 text-2xl italic leading-relaxed mb-8">
+                "{testimonials[activeIndex].quote}"
+              </p>
               
-              <div className="md:w-2/3">
-                <p className="text-gray-300 text-lg italic mb-6">
-                  "{testimonials[activeIndex].quote}"
-                </p>
+              <div className="space-y-1">
+                <h3 className="text-xl font-bold text-white">{testimonials[activeIndex].name}</h3>
+                <p className="text-gray-400">{testimonials[activeIndex].position}</p>
+                <p className="text-purple-400">{testimonials[activeIndex].company}</p>
               </div>
             </div>
             
-            <div className="flex justify-center gap-3 mt-8">
+            <div className="flex justify-center gap-3 mt-12">
               <button 
                 onClick={prevTestimonial}
-                className="bg-gray-700 hover:bg-gray-600 rounded-full p-2 transition-colors duration-200"
+                className="bg-gray-700/50 hover:bg-gray-600/50 rounded-full p-3 transition-colors duration-200"
+                aria-label="Previous testimonial"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={24} />
               </button>
               
               <div className="flex gap-2 items-center">
@@ -130,8 +113,8 @@ const Testimonials = () => {
                   <button 
                     key={index}
                     onClick={() => setActiveIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      index === activeIndex ? 'bg-purple-500 w-6' : 'bg-gray-600'
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      index === activeIndex ? 'w-8 bg-purple-500' : 'w-2 bg-gray-600'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -140,9 +123,10 @@ const Testimonials = () => {
               
               <button 
                 onClick={nextTestimonial}
-                className="bg-gray-700 hover:bg-gray-600 rounded-full p-2 transition-colors duration-200"
+                className="bg-gray-700/50 hover:bg-gray-600/50 rounded-full p-3 transition-colors duration-200"
+                aria-label="Next testimonial"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={24} />
               </button>
             </div>
           </div>
@@ -151,7 +135,7 @@ const Testimonials = () => {
             {['Meta', 'Google', 'TikTok'].map((platform, index) => (
               <div 
                 key={index}
-                className="bg-gray-800 rounded-xl p-6 border border-gray-700 text-center"
+                className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 text-center"
               >
                 <div className="text-4xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                   {index === 0 ? '250%' : index === 1 ? '3.5x' : '42%'}
