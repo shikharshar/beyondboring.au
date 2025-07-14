@@ -19,37 +19,19 @@ function Home() {
   return (
     <>
       <SEOHead
-        title="BeyondBoring | Scale Profitably with Ads - Digital Marketing Agency"
-        description="Scale your business profitably with data-driven digital marketing strategies. Specializing in Google Ads, Facebook Ads, automation, and conversion optimization. Get results that matter."
-        keywords="digital marketing agency, Google Ads management, Facebook Ads, paid advertising, marketing automation, conversion optimization, lead generation, ROI optimization, PPC management, social media advertising"
-        canonicalUrl="/"
+        title="BeyondBoring | Growth-Obsessed Digital Marketing Agency"
+        description="Scale profitably with ads. $100K+ in efficient ad spend. From creative to conversion, our team and in-house tech have you covered."
+        keywords="digital marketing, paid advertising, Google Ads, Facebook Ads, growth marketing, ROI optimization"
+        canonicalUrl={`${import.meta.env.BASE_URL || '/'}`}
       />
       <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Framework />
-        <EverythingWeHelpWith />
-        <Testimonials />
-        <WhoWeAre />
-        <FAQ />
-        <Contact />
-      </main>
+      <Hero />
+      <Services />
+      <Framework />
+      <EverythingWeHelpWith />
+      <Testimonials />
+      <Contact />
       <Footer />
-    </>
-  );
-}
-
-function PrivacyPolicyPage() {
-  return (
-    <>
-      <SEOHead
-        title="Privacy Policy | BeyondBoring - Digital Marketing Agency"
-        description="Read BeyondBoring's privacy policy to understand how we collect, use, and protect your personal information. Your privacy and data security are our priorities."
-        keywords="privacy policy, data protection, personal information, digital marketing privacy, GDPR compliance"
-        canonicalUrl="/privacy-policy"
-      />
-      <PrivacyPolicy />
     </>
   );
 }
@@ -63,9 +45,11 @@ function App() {
       <div className="bg-gray-900 text-gray-100 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/who-we-are" element={<WhoWeAre />} />
         </Routes>
       </div>
     </Router>
