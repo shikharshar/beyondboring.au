@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "slug": "automated-lead-generation-strategies-2024",
+      "title": "5 Automated Lead Generation Strategies That Actually Work in 2024",
+      "excerpt": "Discover proven automated lead generation strategies that can triple your conversion rates and save hours of manual work. Learn how top businesses are leveraging AI and automation to scale profitably.",
+      "category": "Lead Generation",
+      "date": "2024-01-15"
+    },
+    {
+      "slug": "roi-optimization-paid-advertising-guide",
+      "title": "The Complete Guide to ROI Optimization in Paid Advertising: From Setup to Scale",
+      "excerpt": "Master the art of ROI optimization in paid advertising with this comprehensive guide. Learn advanced strategies used by top agencies to achieve 300%+ ROAS consistently.",
+      "category": "Paid Advertising",
+      "date": "2024-01-20"
+    }
+  ]
+}
