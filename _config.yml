@@ -1,0 +1,39 @@
+# GitHub Pages Jekyll configuration
+# Tell GitHub Pages to serve all files, including markdown files
+
+include:
+  - "blogs/*.md"
+  - "blogs/*.json"
+  - "*.md"
+  - "*.json"
+
+# Exclude processing for these directories/files
+exclude:
+  - "node_modules"
+  - "src"
+  - "dist"
+  - "package.json"
+  - "package-lock.json"
+  - "vite.config.ts"
+  - "tsconfig*.json"
+  - "tailwind.config.js"
+  - "postcss.config.js"
+  - "eslint.config.js"
+
+# Ensure markdown files are served as static content
+plugins:
+  - jekyll-optional-front-matter
+
+# Don't process markdown files through Jekyll
+markdown: kramdown
+kramdown:
+  input: GFM
+  
+# Serve files as-is without Jekyll processing for these extensions
+defaults:
+  - scope:
+      path: "blogs"
+      type: "pages"
+    values:
+      layout: null
+      sitemap: false 
