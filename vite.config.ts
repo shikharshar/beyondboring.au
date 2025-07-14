@@ -2,9 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/beyondboring.au/',
+  base: command === 'serve' ? '/' : '/beyondboring.au/',
   define: {
     global: 'globalThis',
   },
@@ -39,4 +39,4 @@ export default defineConfig({
     port: 4173,
     host: true
   }
-});
+}));
