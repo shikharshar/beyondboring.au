@@ -7,6 +7,7 @@ export default defineConfig({
   base: '/beyondboring.au/',
   define: {
     global: 'globalThis',
+    'process.env': {}
   },
   build: {
     outDir: 'dist',
