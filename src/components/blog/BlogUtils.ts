@@ -47,57 +47,102 @@ export const fetchAllBlogPosts = async (): Promise<BlogPost[]> => {
   const blogPosts: BlogPost[] = [];
   
   try {
-    // First, fetch the index file to get list of all blog posts
-    const indexUrl = `${import.meta.env.BASE_URL}blogs/index.json`;
-    console.log('Fetching blog index from:', indexUrl);
+    // Construct the base URL - handle both development and production
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+    const indexUrl = `${normalizedBaseUrl}blogs/index.json`;
+    
+    console.log('🔍 BASE_URL:', import.meta.env.BASE_URL);
+    console.log('🔍 Normalized base URL:', normalizedBaseUrl);
+    console.log('🔍 Fetching blog index from:', indexUrl);
+    console.log('🔍 Current location:', window.location.href);
     
     const indexResponse = await fetch(indexUrl);
-    console.log('Index response status:', indexResponse.status);
+    console.log('📋 Index response status:', indexResponse.status, indexResponse.statusText);
+    console.log('📋 Index response URL:', indexResponse.url);
     
     if (!indexResponse.ok) {
-      console.error('Could not fetch blog index, status:', indexResponse.status, indexResponse.statusText);
-      return [];
+      console.error('❌ Could not fetch blog index:', {
+        status: indexResponse.status,
+        statusText: indexResponse.statusText,
+        url: indexUrl
+      });
+      
+      // Try alternative URL construction
+      const altIndexUrl = '/blogs/index.json';
+      console.log('🔄 Trying alternative URL:', altIndexUrl);
+      const altResponse = await fetch(altIndexUrl);
+      
+      if (!altResponse.ok) {
+        console.error('❌ Alternative URL also failed:', altResponse.status, altResponse.statusText);
+        return [];
+      }
+      
+      const indexData = await altResponse.json();
+      console.log('✅ Index data from alternative URL:', indexData);
+      return await processBlogPosts(indexData.posts || [], '/');
     }
     
     const indexData = await indexResponse.json();
-    console.log('Index data:', indexData);
+    console.log('✅ Index data loaded successfully:', indexData);
     const blogFiles = indexData.posts || [];
+    console.log('📝 Found blog files:', blogFiles.length);
     
-    // Fetch each blog post
-    for (const blogInfo of blogFiles) {
-      try {
-        const url = `${import.meta.env.BASE_URL}blogs/${blogInfo.filename}`;
-        console.log('Fetching blog post from:', url);
-        
-        const response = await fetch(url);
-        if (response.ok) {
-          const markdownContent = await response.text();
-          const { data, content } = matter(markdownContent);
-          
-          const blogPost: BlogPost = {
-            slug: data.slug,
-            title: data.title,
-            excerpt: data.excerpt,
-            author: data.author,
-            date: data.date,
-            readTime: data.readTime,
-            category: data.category,
-            tags: data.tags || [],
-            featuredImage: data.featuredImage,
-            metaDescription: data.metaDescription,
-            metaKeywords: data.metaKeywords,
-            content: content
-          };
-          
-          blogPosts.push(blogPost);
-        }
-      } catch (error) {
-        console.error(`Error fetching blog post ${blogInfo.filename}:`, error);
-      }
-    }
+    return await processBlogPosts(blogFiles, normalizedBaseUrl);
+    
   } catch (error) {
-    console.error('Error fetching blog posts:', error);
+    console.error('❌ Error fetching blog posts:', error);
+    console.error('❌ Error details:', error instanceof Error ? error.message : 'Unknown error');
+    return [];
   }
+};
+
+// Helper function to process blog posts
+const processBlogPosts = async (blogFiles: any[], baseUrl: string): Promise<BlogPost[]> => {
+  const blogPosts: BlogPost[] = [];
+  
+  // Fetch each blog post
+  for (const blogInfo of blogFiles) {
+    try {
+      const url = `${baseUrl}blogs/${blogInfo.filename}`;
+      console.log(`📄 Fetching blog post: ${blogInfo.filename} from ${url}`);
+      
+      const response = await fetch(url);
+      console.log(`📄 Response status for ${blogInfo.filename}:`, response.status);
+      
+      if (response.ok) {
+        const markdownContent = await response.text();
+        console.log(`📄 Content length for ${blogInfo.filename}:`, markdownContent.length);
+        
+        const { data, content } = matter(markdownContent);
+        console.log(`📄 Parsed frontmatter for ${blogInfo.filename}:`, data);
+        
+        const blogPost: BlogPost = {
+          slug: data.slug,
+          title: data.title,
+          excerpt: data.excerpt,
+          author: data.author,
+          date: data.date,
+          readTime: data.readTime,
+          category: data.category,
+          tags: data.tags || [],
+          featuredImage: data.featuredImage,
+          metaDescription: data.metaDescription,
+          metaKeywords: data.metaKeywords,
+          content: content
+        };
+        
+        blogPosts.push(blogPost);
+        console.log(`✅ Successfully processed: ${blogInfo.filename}`);
+      } else {
+        console.error(`❌ Failed to fetch ${blogInfo.filename}:`, response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error(`❌ Error processing blog post ${blogInfo.filename}:`, error);
+    }
+  }
+  
+  console.log(`🎉 Total blog posts loaded: ${blogPosts.length}`);
   
   // Sort posts by date (newest first)
   return blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -106,10 +151,25 @@ export const fetchAllBlogPosts = async (): Promise<BlogPost[]> => {
 // Function to fetch a single blog post by slug
 export const fetchBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
   try {
+    // Construct the base URL - handle both development and production
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+    
+    console.log('🔍 Fetching single post by slug:', slug);
+    console.log('🔍 Using base URL:', normalizedBaseUrl);
+    
     // First, fetch the index to find the filename for this slug
-    const indexResponse = await fetch(`${import.meta.env.BASE_URL}blogs/index.json`);
+    const indexUrl = `${normalizedBaseUrl}blogs/index.json`;
+    let indexResponse = await fetch(indexUrl);
+    
+    // Try alternative URL if first attempt fails
     if (!indexResponse.ok) {
-      console.error('Could not fetch blog index');
+      console.log('🔄 Index fetch failed, trying alternative URL');
+      indexResponse = await fetch('/blogs/index.json');
+    }
+    
+    if (!indexResponse.ok) {
+      console.error('❌ Could not fetch blog index for single post');
       return null;
     }
     
@@ -119,14 +179,27 @@ export const fetchBlogPostBySlug = async (slug: string): Promise<BlogPost | null
     // Find the blog info for this slug
     const blogInfo = blogFiles.find((blog: any) => blog.slug === slug);
     if (!blogInfo) {
+      console.error(`❌ Blog post with slug "${slug}" not found in index`);
       return null;
     }
     
+    console.log(`📄 Found blog info for slug "${slug}":`, blogInfo);
+    
     // Fetch the specific blog post
-    const response = await fetch(`${import.meta.env.BASE_URL}blogs/${blogInfo.filename}`);
+    const postUrl = `${normalizedBaseUrl}blogs/${blogInfo.filename}`;
+    let response = await fetch(postUrl);
+    
+    // Try alternative URL if first attempt fails
+    if (!response.ok) {
+      console.log('🔄 Post fetch failed, trying alternative URL');
+      response = await fetch(`/blogs/${blogInfo.filename}`);
+    }
+    
     if (response.ok) {
       const markdownContent = await response.text();
       const { data, content } = matter(markdownContent);
+      
+      console.log(`✅ Successfully loaded single post: ${slug}`);
       
       return {
         slug: data.slug,
@@ -144,9 +217,10 @@ export const fetchBlogPostBySlug = async (slug: string): Promise<BlogPost | null
       };
     }
     
+    console.error(`❌ Failed to fetch blog post file: ${blogInfo.filename}`);
     return null;
   } catch (error) {
-    console.error(`Error fetching blog post with slug ${slug}:`, error);
+    console.error(`❌ Error fetching blog post with slug ${slug}:`, error);
     return null;
   }
 };
