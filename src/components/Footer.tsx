@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center mb-8">
           <a href="#" className="flex items-center gap-2">
-            <img src="/Images/BeyondBoringLogo.png" alt="BeyondBoring Logo" className="h-10 w-auto" />
+            <img src="http://localhost:5174/beyondboring.au/Images/BeyondBoringLogo.png" alt="BeyondBoring Logo" className="h-10 w-auto" />
           </a>
           
           <button
