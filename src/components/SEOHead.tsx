@@ -160,9 +160,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="dns-prefetch" href="//calendly.com" />
       
       {/* Favicon and App Icons */}
-      <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:5174/beyondboring.au/Images/BeyondBoringLogo.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:5174/beyondboring.au/Images/BeyondBoringLogo.png" />
-      <link rel="apple-touch-icon" href="http://localhost:5174/beyondboring.au/Images/BeyondBoringLogo.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/Images/BeyondBoringLogo.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/Images/BeyondBoringLogo.png" />
+      <link rel="apple-touch-icon" href="/Images/BeyondBoringLogo.png" />
       
       {/* Language and Region */}
       <meta httpEquiv="content-language" content="en-US" />

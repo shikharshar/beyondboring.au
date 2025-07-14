@@ -48,19 +48,27 @@ export const fetchAllBlogPosts = async (): Promise<BlogPost[]> => {
   
   try {
     // First, fetch the index file to get list of all blog posts
-    const indexResponse = await fetch(`${import.meta.env.BASE_URL}blogs/index.json`);
+    const indexUrl = `${import.meta.env.BASE_URL}blogs/index.json`;
+    console.log('Fetching blog index from:', indexUrl);
+    
+    const indexResponse = await fetch(indexUrl);
+    console.log('Index response status:', indexResponse.status);
+    
     if (!indexResponse.ok) {
-      console.error('Could not fetch blog index');
+      console.error('Could not fetch blog index, status:', indexResponse.status, indexResponse.statusText);
       return [];
     }
     
     const indexData = await indexResponse.json();
+    console.log('Index data:', indexData);
     const blogFiles = indexData.posts || [];
     
     // Fetch each blog post
     for (const blogInfo of blogFiles) {
       try {
         const url = `${import.meta.env.BASE_URL}blogs/${blogInfo.filename}`;
+        console.log('Fetching blog post from:', url);
+        
         const response = await fetch(url);
         if (response.ok) {
           const markdownContent = await response.text();
