@@ -13,12 +13,10 @@ const WhoWeAre = () => {
     {
       name: 'Shikhar Sharma',
       role: 'Growth Hacker',
-      image: '/Images/Shikhar.jpeg'
     },
     {
       name: 'Kaish Yadav',
       role: 'Solving Problems',
-      image: '/Images/Kaish.jpeg'
     }
   ];
 
@@ -71,23 +69,16 @@ const WhoWeAre = () => {
           <div className="bg-gray-800/50 rounded-3xl p-12 mt-16 backdrop-blur-sm">
             <h3 className="text-3xl font-bold mb-12">Founded By:</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {founders.map((founder, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="w-32 h-32 bg-gray-700 rounded-full overflow-hidden mb-6">
-                    <img
-                      src={founder.image}
-                      alt={founder.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                <div key={index} className="text-center p-6 rounded-lg bg-gray-800/50">
                   <h4 className="text-2xl font-bold text-white mb-2">{founder.name}</h4>
                   <p className="text-gray-400 text-lg">{founder.role}</p>
                 </div>
               ))}
             </div>
 
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto mt-16">
               <div className="space-y-6">
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-4 justify-center">
